@@ -1,0 +1,38 @@
+.app-shell {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 48px 20px;
+}
+
+.app-hero {
+  display: grid;
+  gap: 20px;
+  max-width: 760px;
+  text-align: center;
+}
+
+.app-kicker {
+  color: rgb(23 30 253);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-hero h1 {
+  margin: 0;
+}
+
+.app-copy {
+  color: rgb(87 89 105);
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.app-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}

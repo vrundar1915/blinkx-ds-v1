@@ -1,0 +1,77 @@
+.blinkx-button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-weight: 700;
+  gap: 10px;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 1;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.blinkx-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.blinkx-button:focus-visible {
+  outline: 3px solid rgb(23 30 253 / 28%);
+  outline-offset: 3px;
+}
+
+.blinkx-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.blinkx-button--primary {
+  background: rgb(23 30 253);
+  color: rgb(255 255 255);
+}
+
+.blinkx-button--primary:hover:not(:disabled) {
+  background: rgb(12 17 204);
+}
+
+.blinkx-button--secondary {
+  background: rgb(255 255 255);
+  border-color: rgb(23 30 253 / 28%);
+  color: rgb(23 30 253);
+}
+
+.blinkx-button--secondary:hover:not(:disabled) {
+  background: rgb(244 246 255);
+  border-color: rgb(23 30 253 / 52%);
+}
+
+.blinkx-button--sm {
+  min-height: 34px;
+  padding: 0 16px;
+  font-size: 13px;
+}
+
+.blinkx-button--md {
+  min-height: 42px;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.blinkx-button--lg {
+  min-height: 50px;
+  padding: 0 24px;
+  font-size: 17px;
+}
+
+.blinkx-button__bolt {
+  font-size: 0.95em;
+  line-height: 1;
+}
