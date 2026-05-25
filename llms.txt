@@ -1,0 +1,100 @@
+# blinkX DS V1
+
+## Purpose
+
+blinkX DS V1 is a Storybook-based design system documentation project for blinkX. It documents foundation tokens and interactive components with light and dark theme variants, Figma-aligned component properties, live previews, galleries, and downloadable markdown specs.
+
+## Public URLs
+
+- GitHub repository: https://github.com/vrundar1915/blinkx-ds-v1
+- Raw AI context file: https://raw.githubusercontent.com/vrundar1915/blinkx-ds-v1/main/llms.txt
+- Live Storybook: https://blinkx-ds-v1.vercel.app
+- Live AI context file: https://blinkx-ds-v1.vercel.app/llms.txt
+
+## Guidance For AI Agents
+
+- Start with this file, then inspect `README.md`, `package.json`, `src/`, and `public/*.md`.
+- For web-only fetch tools, use raw GitHub file URLs, not the `.git` clone URL.
+- For full code access, clone `https://github.com/vrundar1915/blinkx-ds-v1.git`.
+- Use the markdown files in `public/` as the human-readable design specs.
+- Use the React and CSS files in `src/components/` as the source of truth for interactive component behavior.
+- Use the token files in `src/foundation/` as the source of truth for foundation values.
+- The project uses React, TypeScript, Vite, Storybook, and Vercel.
+
+## Install And Run
+
+```bash
+npm install
+npm run storybook
+```
+
+Storybook runs locally at `http://127.0.0.1:6006`.
+
+## Build
+
+```bash
+npm run build-storybook
+```
+
+Vercel uses:
+
+- Build command: `npm run build-storybook`
+- Output directory: `storybook-static`
+
+## Main Source Areas
+
+| Area | Path | Notes |
+| --- | --- | --- |
+| Components | `src/components/` | Interactive React components and Storybook stories. |
+| Foundation tokens | `src/foundation/` | Color, typography, spacing, radius, and shadow token pages. |
+| Downloadable specs | `public/*.md` | Markdown specs exposed by Storybook download CTAs. |
+| Storybook config | `.storybook/` | Manager branding, preview config, addons, and Storybook behavior. |
+| Vercel config | `vercel.json` | Production deployment settings. |
+
+## Foundation Docs
+
+| Topic | Markdown spec |
+| --- | --- |
+| Primitive colors | `public/blinkx-primitive-colors.md` |
+| Semantic colors | `public/blinkx-semantic-colors.md` |
+| Typography | `public/blinkx-typography.md` |
+| Spacing | `public/blinkx-spacing.md` |
+| Radius | `public/blinkx-radius.md` |
+| Drop shadow | `public/blinkx-drop-shadow.md` |
+
+## Component Docs
+
+| Component | Markdown spec | Source files |
+| --- | --- | --- |
+| Brand button | `public/blinkx-brand-buttons.md` | `src/components/BlinkXButton.tsx`, `src/components/BlinkXButton.css`, `src/components/Buttons.stories.tsx` |
+| Buy/Sell button | `public/blinkx-buy-sell-buttons.md` | `src/components/BlinkXBuySellButton.tsx`, `src/components/BlinkXBuySellButton.css`, `src/components/BuySellButtons.stories.tsx` |
+| Radio | `public/blinkx-radio.md` | `src/components/BlinkXRadio.tsx`, `src/components/BlinkXRadio.css`, `src/components/Radio.stories.tsx` |
+| Checkbox | `public/blinkx-checkbox.md` | `src/components/BlinkXCheckbox.tsx`, `src/components/BlinkXCheckbox.css`, `src/components/Checkbox.stories.tsx` |
+| Segment | `public/blinkx-segment.md` | `src/components/BlinkXSegment.tsx`, `src/components/BlinkXSegment.css`, `src/components/Segment.stories.tsx` |
+| Toggle | `public/blinkx-toggle.md` | `src/components/BlinkXToggle.tsx`, `src/components/BlinkXToggle.css`, `src/components/Toggle.stories.tsx` |
+| Tooltip | `public/blinkx-tooltip.md` | `src/components/BlinkXTooltip.tsx`, `src/components/BlinkXTooltip.css`, `src/components/Tooltip.stories.tsx` |
+| Tab | `public/blinkx-tab.md` | `src/components/BlinkXTab.tsx`, `src/components/BlinkXTab.css`, `src/components/Tab.stories.tsx` |
+| Chips | `public/blinkx-chips.md` | `src/components/BlinkXChip.tsx`, `src/components/BlinkXChip.css`, `src/components/Chips.stories.tsx` |
+| Quick Action Bar | `public/blinkx-quick-action-bar.md` | `src/components/BlinkXQuickActionBar.tsx`, `src/components/BlinkXQuickActionBar.css`, `src/components/QuickActionBar.stories.tsx` |
+
+## Design System Conventions
+
+- Font family: Barlow.
+- Dominant brand action color: `#171EFD`.
+- Dark surface color: `#1A1E23`.
+- Dark border color commonly uses `#33373B`.
+- Components should expose the same component properties that the Storybook controls show.
+- Component code blocks should describe implementation-only code for dev handoff, not Storybook control UI.
+- Light and dark theme values should be preserved separately.
+
+## Best Link To Share With AI
+
+Use this prompt:
+
+```text
+Use this public repo and AI context file:
+https://github.com/vrundar1915/blinkx-ds-v1
+https://raw.githubusercontent.com/vrundar1915/blinkx-ds-v1/main/llms.txt
+
+Review the Storybook design system, inspect the markdown specs in public/, and use the component source files in src/components/ as implementation reference.
+```
