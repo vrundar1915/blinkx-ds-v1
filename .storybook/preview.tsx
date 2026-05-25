@@ -34,6 +34,8 @@ const preview: Preview = {
             ['Preview', 'Gallery'],
             'Quick Action Bar',
             ['Preview', 'Gallery'],
+            'Loader',
+            ['Preview', 'Gallery'],
           ],
         ],
       },

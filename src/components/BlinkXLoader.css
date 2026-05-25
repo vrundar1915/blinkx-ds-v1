@@ -1,0 +1,152 @@
+.blinkx-loader {
+  --loader-arc: #171efd;
+  --loader-focus-ring: #d1d2ff;
+  --loader-shadow:
+    0 2px 2px -1px #0a0d100a,
+    0 4px 6px -2px #0a0d1008,
+    0 12px 16px -4px #0a0d1014;
+  --loader-surface: #ffffff;
+  --loader-track: #e7e7e7;
+  align-items: center;
+  display: inline-flex;
+  height: 56px;
+  justify-content: center;
+  width: 56px;
+}
+
+.blinkx-loader--theme-dark {
+  --loader-arc: #585dfe;
+  --loader-focus-ring: #3f44a6;
+  --loader-shadow:
+    0 2px 2px -1px #0a0d1033,
+    0 4px 6px -2px #0a0d102e,
+    0 12px 16px -4px #0a0d105c;
+  --loader-surface: #1a1e23;
+  --loader-track: #33373b;
+}
+
+.blinkx-loader__surface {
+  align-items: center;
+  background: var(--loader-surface);
+  border-radius: 999px;
+  box-shadow: var(--loader-shadow);
+  display: inline-flex;
+  height: 56px;
+  justify-content: center;
+  position: relative;
+  width: 56px;
+}
+
+.blinkx-loader__ring {
+  height: 56px;
+  overflow: visible;
+  position: absolute;
+  transform-origin: 50% 50%;
+  width: 56px;
+}
+
+.blinkx-loader__track,
+.blinkx-loader__arc {
+  fill: none;
+  stroke-width: 5;
+}
+
+.blinkx-loader__track {
+  stroke: var(--loader-track);
+}
+
+.blinkx-loader__arc {
+  stroke: var(--loader-arc);
+  stroke-dasharray: 33 131.9;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.blinkx-loader__logo {
+  align-items: center;
+  display: inline-flex;
+  height: 28px;
+  justify-content: center;
+  position: relative;
+  width: 28px;
+  z-index: 1;
+}
+
+.blinkx-loader__logo-svg {
+  display: block;
+  height: 28px;
+  width: 28px;
+}
+
+.blinkx-loader--variation-constant .blinkx-loader__ring {
+  animation: blinkx-loader-rotate 0.8s linear infinite;
+}
+
+.blinkx-loader--variation-eased-snatch .blinkx-loader__ring {
+  animation: blinkx-loader-rotate 1.3s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.blinkx-loader--variation-stretch .blinkx-loader__ring {
+  animation: blinkx-loader-rotate 1.8s linear infinite;
+}
+
+.blinkx-loader--variation-stretch .blinkx-loader__arc {
+  animation: blinkx-loader-stretch 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes blinkx-loader-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blinkx-loader-stretch {
+  0% {
+    stroke-dasharray: 16 115.9;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 84 47.9;
+    stroke-dashoffset: -28;
+  }
+
+  100% {
+    stroke-dasharray: 16 115.9;
+    stroke-dashoffset: -131.9;
+  }
+}
+
+.buttons-token__preview.blinkx-loader-token-preview {
+  min-height: 180px;
+}
+
+.buttons-token-grid.loader-variation-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.buttons-token-grid.loader-theme-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 1080px) {
+  .buttons-token-grid.loader-variation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .buttons-token-grid.loader-theme-grid,
+  .buttons-token-grid.loader-variation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blinkx-loader__arc,
+  .blinkx-loader__ring {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+}

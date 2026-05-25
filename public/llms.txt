@@ -76,6 +76,7 @@ Vercel uses:
 | Tab | `public/blinkx-tab.md` | `src/components/BlinkXTab.tsx`, `src/components/BlinkXTab.css`, `src/components/Tab.stories.tsx` |
 | Chips | `public/blinkx-chips.md` | `src/components/BlinkXChip.tsx`, `src/components/BlinkXChip.css`, `src/components/Chips.stories.tsx` |
 | Quick Action Bar | `public/blinkx-quick-action-bar.md` | `src/components/BlinkXQuickActionBar.tsx`, `src/components/BlinkXQuickActionBar.css`, `src/components/QuickActionBar.stories.tsx` |
+| Loader | `public/blinkx-loader.md` | `src/components/BlinkXLoader.tsx`, `src/components/BlinkXLoader.css`, `src/components/Loader.stories.tsx` |
 
 ## Design System Conventions
 
