@@ -72,7 +72,7 @@ export function Example() {
 
 | Usage | Value | Figma variable |
 | --- | --- | --- |
-| Rotating ring | Gradient `#F8BC67` -> `#FB8043` -> `#DD3B59` | `Gradient/G4` |
+| Rotating ring | Gradient `#F8BC6799` -> `#FB804399` -> `#DD3B5999` | `Color/Gradient/g-5_alpha-60` -> `Color/Gradient/g-4_alpha-60` -> `Color/Gradient/g-3_alpha-60` |
 | Grey ring | `#33373B` | `Color/background/brand/bg-brand-disable` -> `Colors/neutral/Dark/neutral-100` |
 | Surface | `#1A1E23` | `Color/Surface - Elevation/surface 1` -> `Colors/surface/Dark/1` |
 | Shadow | None | Loader node effects |
@@ -179,9 +179,9 @@ export function BlinkXLoader({
 }
 
 .blinkx-loader--theme-dark {
-  --loader-arc-end: #dd3b59;
-  --loader-arc-middle: #fb8043;
-  --loader-arc-start: #f8bc67;
+  --loader-arc-end: #dd3b5999;
+  --loader-arc-middle: #fb804399;
+  --loader-arc-start: #f8bc6799;
   --loader-surface: #1a1e23;
   --loader-track: #33373b;
 }

@@ -12,9 +12,9 @@
 }
 
 .blinkx-loader--theme-dark {
-  --loader-arc-end: #dd3b59;
-  --loader-arc-middle: #fb8043;
-  --loader-arc-start: #f8bc67;
+  --loader-arc-end: #dd3b5999;
+  --loader-arc-middle: #fb804399;
+  --loader-arc-start: #f8bc6799;
   --loader-surface: #1a1e23;
   --loader-track: #33373b;
 }
