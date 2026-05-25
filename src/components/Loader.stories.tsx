@@ -203,7 +203,7 @@ function getDetailedCode(args: LoaderStoryArgs) {
   const aliases = loaderTokenAliases[theme]
   const variation = variationDetails[rotatingVariation]
 
-  return `import type { HTMLAttributes } from 'react'
+  return `import { useId, type HTMLAttributes } from 'react'
 import './BlinkXLoader.css'
 
 export type BlinkXLoaderTheme = 'light' | 'dark'
@@ -222,6 +222,7 @@ export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 /* Figma nodes */
 /* Loader: 6194:15899 | Surface: 6194:15904 | Logo: 6194:15912 */
 /* Bg - Grey Ring: 6194:15913 | Rotating Ring: 6194:15914 */
+/* Each instance uses useId() for unique SVG gradient ids so gallery themes do not share arc colors. */
 
 /* Resolved tokens for ${theme} theme */
 --loader-arc-start: ${tokens.arcStart}; /* ${aliases.arcStart} */
@@ -274,7 +275,6 @@ export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 }
 
 .blinkx-loader__arc {
-  stroke: url("#blinkx-loader-ring-gradient");
   stroke-dasharray: ${loaderSpec.arcLength} ${loaderSpec.gapLength};
   stroke-linecap: round;
   transform: rotate(-90deg);

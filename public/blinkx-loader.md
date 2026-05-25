@@ -90,7 +90,7 @@ export function Example() {
 ## Core Component Code
 
 ```tsx
-import type { HTMLAttributes } from 'react'
+import { useId, type HTMLAttributes } from 'react'
 import './BlinkXLoader.css'
 
 export type BlinkXLoaderTheme = 'light' | 'dark'
@@ -114,6 +114,9 @@ export function BlinkXLoader({
   theme = 'light',
   ...loaderProps
 }: BlinkXLoaderProps) {
+  const gradientIdSeed = useId().replace(/:/g, '')
+  const logoGradientId = `blinkx-loader-logo-gradient-${gradientIdSeed}`
+  const ringGradientId = `blinkx-loader-ring-gradient-${gradientIdSeed}`
   const classes = [
     'blinkx-loader',
     `blinkx-loader--theme-${theme}`,
@@ -138,7 +141,7 @@ export function BlinkXLoader({
           <defs>
             <linearGradient
               gradientUnits="userSpaceOnUse"
-              id="blinkx-loader-ring-gradient"
+              id={ringGradientId}
               x1="8"
               x2="38"
               y1="46"
@@ -150,11 +153,17 @@ export function BlinkXLoader({
             </linearGradient>
           </defs>
           <circle className="blinkx-loader__track" cx="28" cy="28" r="25.35" />
-          <circle className="blinkx-loader__arc" cx="28" cy="28" r="25.35" />
+          <circle
+            className="blinkx-loader__arc"
+            cx="28"
+            cy="28"
+            r="25.35"
+            style={{ stroke: `url(#${ringGradientId})` }}
+          />
         </svg>
 
         <span className="blinkx-loader__logo">
-          <BlinkXLoaderLogo />
+          <BlinkXLoaderLogo gradientId={logoGradientId} />
         </span>
       </span>
     </div>
@@ -216,7 +225,6 @@ export function BlinkXLoader({
 }
 
 .blinkx-loader__arc {
-  stroke: url("#blinkx-loader-ring-gradient");
   stroke-dasharray: 104 55.3;
   stroke-linecap: round;
   transform: rotate(-90deg);

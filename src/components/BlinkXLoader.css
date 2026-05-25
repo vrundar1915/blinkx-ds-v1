@@ -49,7 +49,6 @@
 }
 
 .blinkx-loader__arc {
-  stroke: url("#blinkx-loader-ring-gradient");
   stroke-dasharray: 104 55.3;
   stroke-linecap: round;
   transform: rotate(-90deg);
