@@ -1,0 +1,21 @@
+<title>blinkX DS V1</title>
+<link rel="icon" type="image/svg+xml" href="/blinkx-logo.svg" />
+<script>
+  (() => {
+    const legacyStoryPaths = {
+      '/story/components-buttons-buy∕sell--gallery': '/story/components-buttons-buy-sell--gallery',
+      '/story/components-buttons-buy∕sell--preview': '/story/components-buttons-buy-sell--preview',
+      '/story/components-buttons--gallery': '/story/components-buttons-brand--gallery',
+      '/story/components-buttons--preview': '/story/components-buttons-brand--preview',
+    }
+
+    const params = new URLSearchParams(window.location.search)
+    const storyPath = params.get('path')
+    const nextPath = storyPath ? legacyStoryPaths[storyPath] : null
+
+    if (!nextPath) return
+
+    params.set('path', nextPath)
+    window.location.replace(`${window.location.pathname}?${params.toString()}${window.location.hash}`)
+  })()
+</script>

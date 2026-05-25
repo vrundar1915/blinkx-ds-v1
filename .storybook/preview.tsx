@@ -9,6 +9,36 @@ initialize({ onUnhandledRequest: 'bypass' })
 const preview: Preview = {
   loaders: [mswLoader],
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          'Foundation',
+          ['Color', ['Primitives', 'Semantics'], 'Typography', 'Spacing', 'Radius', 'Drop Shadow'],
+          'Components',
+          [
+            'Buttons',
+            ['Brand', ['Preview', 'Gallery'], 'Buy∕Sell', ['Preview', 'Gallery']],
+            'Radio',
+            ['Preview', 'Gallery'],
+            'Checkbox',
+            ['Preview', 'Gallery'],
+            'Segment',
+            ['Preview', 'Gallery'],
+            'Toggle',
+            ['Preview', 'Gallery'],
+            'Tooltip',
+            ['Preview', 'Gallery'],
+            'Tab',
+            ['Preview', 'Gallery'],
+            'Chips',
+            ['Preview', 'Gallery'],
+            'Quick Action Bar',
+            ['Preview', 'Gallery'],
+          ],
+        ],
+      },
+    },
+
     controls: {
       matchers: {
        color: /(background|color)$/i,

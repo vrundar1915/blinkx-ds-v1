@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap");
+
+.foundation-typography-page {
+  background: rgb(247 248 252);
+  color: rgb(24 29 39);
+  font-family: Barlow, Inter, ui-sans-serif, system-ui, sans-serif;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.foundation-typography-header {
+  align-items: center;
+  background: rgb(247 248 252);
+  border-bottom: 1px solid rgb(222 226 235);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin: 0 0 28px;
+  padding: 12px 0 18px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.foundation-typography-kicker {
+  color: rgb(23 30 253);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.foundation-typography-header h1 {
+  color: rgb(24 29 39);
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1;
+  margin: 0;
+}
+
+.foundation-typography-header div > p {
+  color: rgb(87 89 105);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+.typography-header-actions {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.typography-group-list {
+  display: grid;
+  gap: 28px;
+}
+
+.typography-group {
+  display: grid;
+  gap: 14px;
+}
+
+.typography-group__header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.typography-group__header h2 {
+  color: rgb(24 29 39);
+  font-size: 18px;
+  margin: 0;
+}
+
+.typography-group__header span {
+  background: rgb(235 238 247);
+  border: 1px solid rgb(222 226 235);
+  border-radius: 999px;
+  color: rgb(87 89 105);
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 32px;
+  padding: 4px 10px;
+  text-align: center;
+}
+
+.typography-token-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.typography-token {
+  background: rgb(255 255 255);
+  border: 1px solid rgb(222 226 235);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.typography-token__preview {
+  align-items: center;
+  background: rgb(250 251 254);
+  border-bottom: 1px solid rgb(222 226 235);
+  color: rgb(24 29 39);
+  display: flex;
+  font-size: var(--preview-font-size, 28px);
+  font-weight: var(--preview-font-weight, 600);
+  height: 104px;
+  justify-content: center;
+  line-height: var(--preview-line-height, 1);
+}
+
+.typography-token__body {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+}
+
+.typography-token__name {
+  color: rgb(24 29 39);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.typography-token__values {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.typography-token__value {
+  background: rgb(245 247 251);
+  border: 1px solid rgb(225 229 238);
+  border-radius: 999px;
+  color: rgb(87 89 105);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  padding: 3px 8px;
+}
+
+@media (max-width: 760px) {
+  .foundation-typography-page {
+    padding: 28px 18px;
+  }
+
+  .foundation-typography-header {
+    align-items: start;
+    display: grid;
+  }
+
+  .typography-header-actions {
+    margin-left: 0;
+  }
+}
