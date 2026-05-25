@@ -36,6 +36,8 @@ const preview: Preview = {
             ['Preview', 'Gallery'],
             'Loader',
             ['Preview', 'Gallery'],
+            'Toast Message',
+            ['Preview', 'Gallery'],
           ],
         ],
       },

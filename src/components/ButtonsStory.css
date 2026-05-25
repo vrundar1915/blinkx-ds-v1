@@ -293,6 +293,10 @@
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
 }
 
+.buttons-token-grid.toast-token-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr));
+}
+
 .buttons-token {
   background: rgb(255 255 255);
   border: 1px solid rgb(222 226 235);
@@ -325,6 +329,12 @@
 
 .tooltip-token-preview {
   min-height: 190px;
+  overflow: visible;
+  padding: 28px;
+}
+
+.toast-token-preview {
+  min-height: 180px;
   overflow: visible;
   padding: 28px;
 }

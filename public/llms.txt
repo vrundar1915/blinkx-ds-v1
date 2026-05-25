@@ -77,6 +77,7 @@ Vercel uses:
 | Chips | `public/blinkx-chips.md` | `src/components/BlinkXChip.tsx`, `src/components/BlinkXChip.css`, `src/components/Chips.stories.tsx` |
 | Quick Action Bar | `public/blinkx-quick-action-bar.md` | `src/components/BlinkXQuickActionBar.tsx`, `src/components/BlinkXQuickActionBar.css`, `src/components/QuickActionBar.stories.tsx` |
 | Loader | `public/blinkx-loader.md` | `src/components/BlinkXLoader.tsx`, `src/components/BlinkXLoader.css`, `src/components/Loader.stories.tsx` |
+| Toast Message | `public/blinkx-toast-message.md` | `src/components/BlinkXToast.tsx`, `src/components/BlinkXToast.css`, `src/components/Toast.stories.tsx` |
 
 ## Design System Conventions
 
