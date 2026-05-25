@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'react'
 import './BlinkXLoader.css'
 
 export type BlinkXLoaderTheme = 'light' | 'dark'
-export type BlinkXLoaderVariation = 'Constant' | 'Eased / snatch' | 'Stretch'
+export type BlinkXLoaderVariation = 'Constant' | 'Breathing arc' | 'Stretch'
 
 export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   rotatingVariation?: BlinkXLoaderVariation
@@ -12,7 +12,7 @@ export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 
 const variationClassNames: Record<BlinkXLoaderVariation, string> = {
   Constant: 'blinkx-loader--variation-constant',
-  'Eased / snatch': 'blinkx-loader--variation-eased-snatch',
+  'Breathing arc': 'blinkx-loader--variation-breathing-arc',
   Stretch: 'blinkx-loader--variation-stretch',
 }
 
@@ -75,8 +75,22 @@ export function BlinkXLoader({
     >
       <span aria-hidden="true" className="blinkx-loader__surface">
         <svg className="blinkx-loader__ring" fill="none" viewBox="0 0 56 56">
-          <circle className="blinkx-loader__track" cx="28" cy="28" r="21" />
-          <circle className="blinkx-loader__arc" cx="28" cy="28" r="21" />
+          <defs>
+            <linearGradient
+              gradientUnits="userSpaceOnUse"
+              id="blinkx-loader-ring-gradient"
+              x1="8"
+              x2="38"
+              y1="46"
+              y2="4"
+            >
+              <stop stopColor="var(--loader-arc-start)" />
+              <stop offset="0.44230768" stopColor="var(--loader-arc-middle)" />
+              <stop offset="1" stopColor="var(--loader-arc-end)" />
+            </linearGradient>
+          </defs>
+          <circle className="blinkx-loader__track" cx="28" cy="28" r="25.35" />
+          <circle className="blinkx-loader__arc" cx="28" cy="28" r="25.35" />
         </svg>
 
         <span className="blinkx-loader__logo">

@@ -13,7 +13,7 @@ import { ComponentCodeBlock } from './ComponentCodeBlock'
 import './ButtonsStory.css'
 
 const loaderThemes: BlinkXLoaderTheme[] = ['light', 'dark']
-const loaderVariations: BlinkXLoaderVariation[] = ['Constant', 'Eased / snatch', 'Stretch']
+const loaderVariations: BlinkXLoaderVariation[] = ['Constant', 'Breathing arc', 'Stretch']
 const componentPropertyCategory = 'Component\u00A0property'
 const loaderMarkdownHref = '/blinkx-loader.md'
 const loaderMarkdownDownloadName = 'blinkx-loader.md'
@@ -21,27 +21,25 @@ const loaderMarkdownDownloadName = 'blinkx-loader.md'
 type LoaderStoryArgs = BlinkXLoaderProps
 
 type LoaderThemeTokens = {
-  arc: string
-  focusRing: string
-  shadowLg: string
+  arcEnd: string
+  arcMiddle: string
+  arcStart: string
   surface: string
   track: string
 }
 
 const loaderThemeTokens = {
   light: {
-    arc: '#171EFD',
-    focusRing: '#D1D2FF',
-    shadowLg:
-      '0 2px 2px -1px #0A0D100A, 0 4px 6px -2px #0A0D1008, 0 12px 16px -4px #0A0D1014',
+    arcEnd: '#DD3B59',
+    arcMiddle: '#FB8043',
+    arcStart: '#F8BC67',
     surface: '#FFFFFF',
-    track: '#E7E7E7',
+    track: '#F2F2F2',
   },
   dark: {
-    arc: '#585DFE',
-    focusRing: '#3F44A6',
-    shadowLg:
-      '0 2px 2px -1px #0A0D1033, 0 4px 6px -2px #0A0D102E, 0 12px 16px -4px #0A0D105C',
+    arcEnd: '#DD3B59',
+    arcMiddle: '#FB8043',
+    arcStart: '#F8BC67',
     surface: '#1A1E23',
     track: '#33373B',
   },
@@ -49,45 +47,46 @@ const loaderThemeTokens = {
 
 const loaderTokenAliases = {
   light: {
-    arc: 'Color/background/brand/bg-brand-default -> Colors/brand/Light/brand-500',
-    focusRing: 'Color/background/brand/bg-brand-focus_ring -> Colors/brand/Light/brand-100',
+    arcEnd: 'Gradient/G4 stop 3 -> #DD3B59',
+    arcMiddle: 'Gradient/G4 stop 2 -> #FB8043',
+    arcStart: 'Gradient/G4 stop 1 -> #F8BC67',
     surface: 'Color/Surface - Elevation/surface 1 -> Colors/surface/Light/1',
-    track: 'Color/background/brand/bg-brand-disable -> Colors/neutral/Light/neutral-100',
+    track: 'Bg - Grey Ring -> #F2F2F2',
   },
   dark: {
-    arc: 'Color/background/brand/bg-brand-default -> Colors/brand/Dark/brand-500',
-    focusRing: 'Color/background/brand/bg-brand-focus_ring -> Colors/brand/Dark/brand-300',
+    arcEnd: 'Gradient/G4 stop 3 -> #DD3B59',
+    arcMiddle: 'Gradient/G4 stop 2 -> #FB8043',
+    arcStart: 'Gradient/G4 stop 1 -> #F8BC67',
     surface: 'Color/Surface - Elevation/surface 1 -> Colors/surface/Dark/1',
     track: 'Color/background/brand/bg-brand-disable -> Colors/neutral/Dark/neutral-100',
   },
-} satisfies Record<BlinkXLoaderTheme, Record<keyof Omit<LoaderThemeTokens, 'shadowLg'>, string>>
+} satisfies Record<BlinkXLoaderTheme, Record<keyof LoaderThemeTokens, string>>
 
 const variationDetails = {
   Constant: {
     description: 'Fixed 90deg arc, constant-speed rotation. Predictable and quiet - the safe default.',
-    css: 'animation: blinkx-loader-rotate 0.8s linear infinite;',
     timing: 'linear · 0.8s',
   },
-  'Eased / snatch': {
+  'Breathing arc': {
     description:
-      'Same arc, but the rotation accelerates then decelerates each turn. Feels lively, with momentum.',
-    css: 'animation: blinkx-loader-rotate 1.3s cubic-bezier(0.65, 0, 0.35, 1) infinite;',
-    timing: 'cubic-bezier · 1.3s',
+      'The arc rotates while its stroke thickens and thins. Subtle weight shift, no length change.',
+    timing: 'rotate + stroke-width · 1.4s',
   },
   Stretch: {
     description:
       'The arc itself grows and shrinks while rotating. Most expressive - the Material indeterminate spinner.',
-    css: 'rotate + dash animations over 1.8s;',
     timing: 'rotate + dash · 1.8s',
   },
-} satisfies Record<BlinkXLoaderVariation, { description: string; css: string; timing: string }>
+} satisfies Record<BlinkXLoaderVariation, { description: string; timing: string }>
 
 const loaderSpec = {
-  arcLength: '33px',
-  circumference: '131.9px',
+  arcLength: '104px',
+  circumference: '159.3px',
+  gapLength: '55.3px',
   logoSize: '28px',
+  ringRadius: '25.35px',
   ringSize: '56px',
-  strokeWidth: '5px',
+  strokeWidth: '5.3px',
   surfaceSize: '56px',
   wrapperSize: '56px',
 } as const
@@ -111,7 +110,7 @@ const meta = {
       },
     },
     rotatingVariation: {
-      control: 'select',
+      control: 'inline-radio',
       name: 'Rotating variation',
       options: loaderVariations,
       table: {
@@ -208,7 +207,7 @@ function getDetailedCode(args: LoaderStoryArgs) {
 import './BlinkXLoader.css'
 
 export type BlinkXLoaderTheme = 'light' | 'dark'
-export type BlinkXLoaderVariation = 'Constant' | 'Eased / snatch' | 'Stretch'
+export type BlinkXLoaderVariation = 'Constant' | 'Breathing arc' | 'Stretch'
 
 export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   rotatingVariation?: BlinkXLoaderVariation
@@ -225,17 +224,17 @@ export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 /* Bg - Grey Ring: 6194:15913 | Rotating Ring: 6194:15914 */
 
 /* Resolved tokens for ${theme} theme */
---loader-arc: ${tokens.arc}; /* ${aliases.arc} */
+--loader-arc-start: ${tokens.arcStart}; /* ${aliases.arcStart} */
+--loader-arc-middle: ${tokens.arcMiddle}; /* ${aliases.arcMiddle} */
+--loader-arc-end: ${tokens.arcEnd}; /* ${aliases.arcEnd} */
 --loader-track: ${tokens.track}; /* ${aliases.track} */
 --loader-surface: ${tokens.surface}; /* ${aliases.surface} */
---loader-focus-ring: ${tokens.focusRing}; /* ${aliases.focusRing} */
---loader-shadow: ${tokens.shadowLg}; /* Foundation Shadow/Shadow-lg */
 
 /* Component CSS */
 .blinkx-loader {
-  --loader-arc: ${tokens.arc};
-  --loader-focus-ring: ${tokens.focusRing};
-  --loader-shadow: ${tokens.shadowLg};
+  --loader-arc-start: ${tokens.arcStart};
+  --loader-arc-middle: ${tokens.arcMiddle};
+  --loader-arc-end: ${tokens.arcEnd};
   --loader-surface: ${tokens.surface};
   --loader-track: ${tokens.track};
   display: inline-flex;
@@ -254,7 +253,6 @@ export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
   height: ${loaderSpec.surfaceSize}; /* ${pxToRem(loaderSpec.surfaceSize)} */
   border-radius: 999px;
   background: var(--loader-surface);
-  box-shadow: var(--loader-shadow);
 }
 
 .blinkx-loader__ring {
@@ -276,8 +274,8 @@ export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 }
 
 .blinkx-loader__arc {
-  stroke: var(--loader-arc);
-  stroke-dasharray: ${loaderSpec.arcLength} ${loaderSpec.circumference}; /* Fixed 90deg arc */
+  stroke: url("#blinkx-loader-ring-gradient");
+  stroke-dasharray: ${loaderSpec.arcLength} ${loaderSpec.gapLength};
   stroke-linecap: round;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
@@ -291,8 +289,24 @@ export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
 }
 
 /* ${rotatingVariation}: ${variation.description} */
-.blinkx-loader {
-  ${variation.css}
+.blinkx-loader--variation-constant .blinkx-loader__ring {
+  animation: blinkx-loader-rotate 0.8s linear infinite;
+}
+
+.blinkx-loader--variation-breathing-arc .blinkx-loader__ring {
+  animation: blinkx-loader-rotate 1.4s linear infinite;
+}
+
+.blinkx-loader--variation-breathing-arc .blinkx-loader__arc {
+  animation: blinkx-loader-breathe-width 1.4s ease-in-out infinite;
+}
+
+.blinkx-loader--variation-stretch .blinkx-loader__ring {
+  animation: blinkx-loader-rotate 1.8s linear infinite;
+}
+
+.blinkx-loader--variation-stretch .blinkx-loader__arc {
+  animation: blinkx-loader-stretch 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes blinkx-loader-rotate {
@@ -301,20 +315,34 @@ export type BlinkXLoaderProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'>
   }
 }
 
+@keyframes blinkx-loader-breathe-width {
+  0% {
+    stroke-width: 4.3;
+  }
+
+  50% {
+    stroke-width: 6.3;
+  }
+
+  100% {
+    stroke-width: 4.3;
+  }
+}
+
 @keyframes blinkx-loader-stretch {
   0% {
-    stroke-dasharray: 16px 115.9px;
+    stroke-dasharray: 40 119.3;
     stroke-dashoffset: 0;
   }
 
   50% {
-    stroke-dasharray: 84px 47.9px;
-    stroke-dashoffset: -28px;
+    stroke-dasharray: 124 35.3;
+    stroke-dashoffset: -40;
   }
 
   100% {
-    stroke-dasharray: 16px 115.9px;
-    stroke-dashoffset: -131.9px;
+    stroke-dasharray: 40 119.3;
+    stroke-dashoffset: -159.3;
   }
 }`
 }
@@ -379,7 +407,7 @@ function GalleryCanvas() {
                   className="buttons-token__preview blinkx-loader-token-preview button-live-preview"
                   data-theme={theme}
                 >
-                  <BlinkXLoader rotatingVariation="Stretch" theme={theme} />
+                  <BlinkXLoader rotatingVariation="Breathing arc" theme={theme} />
                 </div>
                 <div className="buttons-token__body">
                   <span className="buttons-token__name">{theme}</span>
