@@ -38,6 +38,8 @@ const preview: Preview = {
             ['Preview', 'Gallery'],
             'Toast Message',
             ['Preview', 'Gallery'],
+            'Dropdown',
+            ['Nav Dropdown', ['Preview', 'Gallery']],
           ],
         ],
       },
