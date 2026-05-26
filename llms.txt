@@ -79,6 +79,7 @@ Vercel uses:
 | Loader | `public/blinkx-loader.md` | `src/components/BlinkXLoader.tsx`, `src/components/BlinkXLoader.css`, `src/components/Loader.stories.tsx` |
 | Toast Message | `public/blinkx-toast-message.md` | `src/components/BlinkXToast.tsx`, `src/components/BlinkXToast.css`, `src/components/Toast.stories.tsx` |
 | Nav Dropdown | `public/blinkx-nav-dropdown.md` | `src/components/BlinkXNavDropdown.tsx`, `src/components/BlinkXNavDropdown.css`, `src/components/NavDropdown.stories.tsx` |
+| Content Dropdown | `public/blinkx-content-dropdown.md` | `src/components/BlinkXContentDropdown.tsx`, `src/components/BlinkXContentDropdown.css`, `src/components/ContentDropdown.stories.tsx` |
 
 ## Design System Conventions
 

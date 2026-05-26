@@ -51,9 +51,9 @@ export function Example() {
 
 | Element | Property | Value | Token |
 | --- | --- | --- | --- |
-| Root | Width | Hug content with `151px` / `9.4375rem` minimum | Adjusted from Figma fixed width so labels do not truncate |
+| Root | Width | Hug content, no fixed minimum | Keeps caret close to label as text changes |
 | Root | Gap | `4px` / `0.25rem` | Figma item spacing |
-| Trigger | Width | Hug content with `151px` / `9.4375rem` minimum | Adjusted from Figma fixed width so labels do not truncate |
+| Trigger | Width | Hug content, no fixed minimum | Depends on label length |
 | Trigger | Height | `32px` / `2rem` | Figma fixed height |
 | Trigger | Padding | `4px 6px 4px 8px` | Figma auto-layout padding |
 | Trigger | Radius | `8px` / `0.5rem` | `unit/8` |
@@ -61,12 +61,13 @@ export function Example() {
 | Caret | Size | `16px` / `1rem` | Icon/16px/CaretDown |
 | Caret | Stroke | `1.25px` | `stroke/stroke-md` |
 | Dropdown surface | Width | Fills trigger width with `151px` / `9.4375rem` minimum | Matches expanded trigger width |
-| Dropdown surface | Padding | `2px` / `0.125rem` | Figma padding |
+| Dropdown surface | Padding | `0px` | Tightened menu window padding |
 | Dropdown surface | Radius | `12px` / `0.75rem` | `unit/12` |
-| Dropdown item shell | Height | `38px` / `2.375rem` | Figma row height |
+| Dropdown item shell | Height | `34px` / `2.125rem` | Tightened row shell height |
+| Dropdown item shell | Padding | First row `3px 4px 1px`, following rows `1px 4px 3px` | Tightened row spacing |
 | Dropdown item | Width | Fills dropdown inner width | Matches expanded dropdown width |
-| Dropdown item | Height | `32px` / `2rem` | Figma inner height |
-| Dropdown item | Padding | `4px 8px` | Figma auto-layout padding |
+| Dropdown item | Height | `30px` / `1.875rem` | Tightened hover container height |
+| Dropdown item | Padding | `3px 6px` | Tightened auto-layout padding |
 | Dropdown item | Radius | `8px` / `0.5rem` | `unit/8` |
 | Text | Font | `Barlow SemiBold 600` | `Family/font-family`, `Font weight/semiBold` |
 | Text | Size | `14px` / `0.875rem` | `size/h6/text-md` |
@@ -255,7 +256,7 @@ export function BlinkXNavDropdown({
   flex-direction: column;
   font-family: Barlow, sans-serif;
   gap: 4px;
-  min-width: 151px;
+  min-width: 0;
   position: relative;
   width: max-content;
 }
@@ -292,7 +293,7 @@ export function BlinkXNavDropdown({
   justify-content: center;
   line-height: 20px;
   margin: 0;
-  min-width: 151px;
+  min-width: 0;
   padding: 4px 6px 4px 8px;
   width: max-content;
 }
@@ -314,7 +315,7 @@ export function BlinkXNavDropdown({
 }
 
 .blinkx-nav-dropdown__label {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-width: 0;
   overflow: visible;
   text-align: left;
@@ -346,7 +347,7 @@ export function BlinkXNavDropdown({
   left: 0;
   min-width: 151px;
   opacity: 0;
-  padding: 2px;
+  padding: 0;
   pointer-events: none;
   position: absolute;
   right: 0;
@@ -367,13 +368,13 @@ export function BlinkXNavDropdown({
 
 .blinkx-nav-dropdown__item-shell {
   box-sizing: border-box;
-  height: 38px;
-  padding: 4px 4px 2px;
+  height: 34px;
+  padding: 3px 4px 1px;
   width: 100%;
 }
 
 .blinkx-nav-dropdown__item-shell + .blinkx-nav-dropdown__item-shell {
-  padding: 2px 4px 4px;
+  padding: 1px 4px 3px;
 }
 
 .blinkx-nav-dropdown__item {
@@ -388,11 +389,11 @@ export function BlinkXNavDropdown({
   font: inherit;
   font-size: 14px;
   font-weight: 600;
-  height: 32px;
+  height: 30px;
   line-height: 20px;
   margin: 0;
   overflow: visible;
-  padding: 4px 8px;
+  padding: 3px 6px;
   text-align: left;
   white-space: nowrap;
   width: 100%;

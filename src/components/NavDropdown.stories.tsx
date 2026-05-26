@@ -76,22 +76,22 @@ const navDropdownTokenAliases = {
 
 const navDropdownSpec = {
   caretSize: '16px',
-  dropdownPadding: '2px',
+  dropdownPadding: '0px',
   dropdownRadius: '12px',
   dropdownWidth: '100%',
   dropdownMinWidth: '151px',
   gap: '4px',
-  itemHeight: '32px',
-  itemPadding: '4px 8px',
+  itemHeight: '30px',
+  itemPadding: '3px 6px',
   itemRadius: '8px',
-  itemShellHeight: '38px',
+  itemShellHeight: '34px',
   itemWidth: '100%',
   textFont: 'Barlow SemiBold 600',
   textSize: '14px',
   textLineHeight: '20px',
   triggerGap: '4px',
   triggerHeight: '32px',
-  triggerMinWidth: '151px',
+  triggerMinWidth: '0px',
   triggerPadding: '4px 6px 4px 8px',
   triggerRadius: '8px',
   triggerWidth: 'max-content',
@@ -443,7 +443,14 @@ export function BlinkXNavDropdown({
   outline: none;
 }
 
+.blinkx-nav-dropdown__label {
+  flex: 0 0 auto;
+  min-width: 0;
+  white-space: nowrap;
+}
+
 .blinkx-nav-dropdown__caret {
+  flex: 0 0 auto;
   width: ${navDropdownSpec.caretSize}; /* ${pxToRem(navDropdownSpec.caretSize)} */
   height: ${navDropdownSpec.caretSize}; /* ${pxToRem(navDropdownSpec.caretSize)} */
   stroke: var(--nav-dropdown-icon);
@@ -480,11 +487,11 @@ export function BlinkXNavDropdown({
 
 .blinkx-nav-dropdown__item-shell {
   height: ${navDropdownSpec.itemShellHeight}; /* ${pxToRem(navDropdownSpec.itemShellHeight)} */
-  padding: 4px 4px 2px;
+  padding: 3px 4px 1px;
 }
 
 .blinkx-nav-dropdown__item-shell + .blinkx-nav-dropdown__item-shell {
-  padding: 2px 4px 4px;
+  padding: 1px 4px 3px;
 }
 
 .blinkx-nav-dropdown__item {

@@ -301,6 +301,10 @@
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
 }
 
+.buttons-token-grid.content-dropdown-token-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
+
 .buttons-token {
   background: rgb(255 255 255);
   border: 1px solid rgb(222 226 235);
@@ -352,6 +356,20 @@
 .nav-dropdown-token-preview {
   align-items: flex-start;
   min-height: 220px;
+  overflow: visible;
+  padding: 44px 28px 28px;
+}
+
+.content-dropdown-live-preview {
+  align-items: flex-start;
+  min-height: 320px;
+  overflow: visible;
+  padding-top: 72px;
+}
+
+.buttons-token__preview.button-live-preview.content-dropdown-token-preview {
+  align-items: flex-start;
+  min-height: 360px;
   overflow: visible;
   padding: 44px 28px 28px;
 }

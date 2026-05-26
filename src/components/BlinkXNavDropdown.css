@@ -19,7 +19,7 @@
   font-family: Barlow, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   gap: 4px;
-  min-width: 151px;
+  min-width: 0;
   position: relative;
   width: max-content;
 }
@@ -57,7 +57,7 @@
   letter-spacing: 0;
   line-height: 20px;
   margin: 0;
-  min-width: 151px;
+  min-width: 0;
   padding: 4px 6px 4px 8px;
   transition:
     background 160ms cubic-bezier(0.2, 0, 0, 1),
@@ -84,7 +84,7 @@
 }
 
 .blinkx-nav-dropdown__label {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-width: 0;
   overflow: visible;
   text-align: left;
@@ -117,7 +117,7 @@
   left: 0;
   min-width: 151px;
   opacity: 0;
-  padding: 2px;
+  padding: 0;
   pointer-events: none;
   position: absolute;
   right: 0;
@@ -138,13 +138,13 @@
 
 .blinkx-nav-dropdown__item-shell {
   box-sizing: border-box;
-  height: 38px;
-  padding: 4px 4px 2px;
+  height: 34px;
+  padding: 3px 4px 1px;
   width: 100%;
 }
 
 .blinkx-nav-dropdown__item-shell + .blinkx-nav-dropdown__item-shell {
-  padding: 2px 4px 4px;
+  padding: 1px 4px 3px;
 }
 
 .blinkx-nav-dropdown__item {
@@ -159,12 +159,12 @@
   font: inherit;
   font-size: 14px;
   font-weight: 600;
-  height: 32px;
+  height: 30px;
   letter-spacing: 0;
   line-height: 20px;
   margin: 0;
   overflow: visible;
-  padding: 4px 8px;
+  padding: 3px 6px;
   text-align: left;
   transition:
     background 160ms cubic-bezier(0.2, 0, 0, 1),
